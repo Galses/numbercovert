@@ -1,0 +1,32 @@
+{
+  "name": "number-converter",
+  "displayName": "C++ Number Converter",
+  "description": "Показывает число в 2/8/10/16 системах и меняет систему счисления по горячей клавише",
+  "version": "0.0.1",
+  "engines": { "vscode": "^1.80.0" },
+  "main": "./out/extension.js",
+  "activationEvents": ["onLanguage:cpp", "onLanguage:c"],
+  "contributes": {
+    "commands": [
+      { "command": "numberConverter.toHex", "title": "Число 16-ричное" },
+      { "command": "numberConverter.toDec", "title": "Число 10-ичное" },
+      { "command": "numberConverter.toOct", "title": "Число 8-ричное" },
+      { "command": "numberConverter.toBin", "title": "Число 2-ичное" }
+    ],
+    "keybindings": [
+      { "command": "numberConverter.toHex", "key": "ctrl+alt+h", "when": "editorTextFocus && (editorLangId == cpp || editorLangId == c)" },
+      { "command": "numberConverter.toDec", "key": "ctrl+alt+n", "when": "editorTextFocus && (editorLangId == cpp || editorLangId == c)" },
+      { "command": "numberConverter.toOct", "key": "ctrl+alt+o", "when": "editorTextFocus && (editorLangId == cpp || editorLangId == c)" },
+      { "command": "numberConverter.toBin", "key": "ctrl+alt+b", "when": "editorTextFocus && (editorLangId == cpp || editorLangId == c)" }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  }
+}
